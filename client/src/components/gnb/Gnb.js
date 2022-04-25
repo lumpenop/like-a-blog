@@ -1,16 +1,18 @@
 import React from "react";
 import {Profile} from "./comp/Profile";
 import {Logo} from "./comp/Logo";
-import { Container } from "../Styled";
+import './style/gnbStyle.css';
 
 export const Gnb = () =>{
     return(
-        <>
-        <Container>
-            <Logo />
-            <Profile />
-        </Container>
-        </>
+
+        <header>
+            <nav className="gnb">
+                <Logo />
+                <Profile />
+            </nav>
+        </header>
+    
     )
 }
 
