@@ -5,7 +5,7 @@ export const Logo =() =>{
     return(
         <>
             <Container>
-                <Div><img /></Div>
+                <Div></Div>
                 <Div></Div>
             </Container>
         </>
