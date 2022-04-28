@@ -5,14 +5,12 @@ import './style/gnbStyle.css';
 
 export const Gnb = () =>{
     return(
-
         <header>
             <nav className="gnb">
                 <Logo />
                 <Profile />
             </nav>
         </header>
-    
     )
 }
 

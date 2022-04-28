@@ -1,32 +1,23 @@
 import React from "react";
-import { Container } from "../../style";
 import styled from "styled-components";
 
-const arr = [1, 2, 3, 4, 5, 6]
 
-const mock = [
-    {subject: arr},
-    {content: arr}
-]
-export const MainContent = ({subject, content}) =>{
+
+export const MainContent = ({element}) =>{
     return(
-        <>
-            <Container>
-                {mock.map((e,i)=>{
-                    return( 
-                        <div key={i}>
-                            <h3>{e.subject}</h3>
-                            <p>{e.content}</p>
-                        </div> 
-                    ) 
-                })}              
-            </Container>
-        </>
+        <MainLi>
+            <h3>subject{element}</h3>
+            <p>content{element}</p>
+            <p>2022년 4월 25일</p>
+            <p>by lumpen</p>
+        </MainLi>
     )
 }
 
-const MainUl = styled.ul`
-
-`
 const MainLi = styled.li`
+    display: inline-block;
+    width: 50%;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: center;
 `

@@ -12,35 +12,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const menu = ['블로그', '새 글 작성', '임시 글', '설정', '로그아웃']
 export const Profile = () =>{
     return(
-        <>
-            <div className="profile">
-                <div>
-                        <FontAwesomeIcon 
-                        className="profile-moon-icon" 
-                        icon={faSun} 
-                        />
-                </div>
-                <div>
+        <div className="profile">
+            <div>
                     <FontAwesomeIcon 
-                        className="profile-magnifyingGlass-icon" 
-                        icon={faMagnifyingGlass} />
-                </div>
-                <div className="profile-img-box">
-                    <img className="profile-img" 
-                        src="images/lumpen.jpeg" 
+                    className="profile-moon-icon" 
+                    icon={faSun} 
                     />
-                    <FontAwesomeIcon 
-                        className="profile-img-icon" 
-                        icon={faCaretDown} 
-                    />
-                </div>
-                <ProfileMenu>
-                    {menu.map((el, i)=>{
-                        <ProfileList key={i}>{el}</ProfileList>
-                    })}
-                </ProfileMenu>
             </div>
-        </>
+            <div>
+                <FontAwesomeIcon 
+                    className="profile-magnifyingGlass-icon" 
+                    icon={faMagnifyingGlass} />
+            </div>
+            <div className="profile-img-box">
+                <img className="profile-img" 
+                    src="images/lumpen.jpeg" 
+                />
+                <FontAwesomeIcon 
+                    className="profile-img-icon" 
+                    icon={faCaretDown} 
+                />
+            </div>
+            <ProfileMenu>
+                {menu.map((el, i)=>{
+                    <ProfileList key={i}>{el}</ProfileList>
+                })}
+            </ProfileMenu>
+        </div>
     )
 }
 
