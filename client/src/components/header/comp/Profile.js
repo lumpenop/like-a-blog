@@ -6,9 +6,14 @@ import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faB } from "@fortawesome/free-solid-svg-icons";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 
-const menu = ['블로그', '새 글 작성', '임시 글', '설정', '로그아웃']
+const proflieMenu = [
+    {menu:"내 벨로그", link:"/user"},
+    {menu:"새 글 작성", link:"/write"},
+    {menu:"로그아웃", link:"/logout"}
+]
 
 export const Profile = () =>{
     const [isProfileMenu, setIsProfileMenu] = useState(false);
@@ -46,9 +51,15 @@ export const Profile = () =>{
                 <ProfileMenu
                     isOn={isProfileMenu}
                 >
-                    {menu.map((el, i)=>{
+                    {proflieMenu.map((el, idx)=>{
                         return <ProfileList 
-                                key={i}>{el}
+                                key={idx}>
+                                <Link 
+                                    to={el.link} 
+                                    className="link"
+                                >
+                                    {el.menu}
+                                </Link>
                             </ProfileList>
                     })}
                 </ProfileMenu>
@@ -62,9 +73,20 @@ const ProfileMenu = styled.ul`
     position: absolute;
     top: 2.8rem;
     right: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: skyBlue;
+    background-color: #fafafa;
+    border-radius: 0.1rem;
+    box-shadow: 0.05rem 0.05rem 0.5rem 0.05rem #dfdfdf;
+    cursor: pointer;
+    user-select: none;
 `
 const ProfileList = styled.li`
-    
+    padding: 0.8rem 1.6rem;
+    &:hover{
+        background-color: #efefef;
+        border-radius: 0.1rem;
+        
+    }
+    &:hover > a{
+      color: skyBlue;  
+    }
 `

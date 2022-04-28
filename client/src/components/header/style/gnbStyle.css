@@ -9,7 +9,7 @@
 }
 
 .logo-icon{
-    padding: 0.5em;
+    padding: 0.5rem;
 }
 
 .profile > div {
@@ -29,17 +29,19 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 1.5rem;
+    user-select: none;
 }
 
 .profile-img-box{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .profile-img-icon{
-    width: 1em;
-    height: 1em;
-    padding-left: 0.3em;
+    width: 1rem;
+    height: 1rem;
+    padding-left: 0.3rem;
 }
 
 .profile-magnifyingGlass-icon{
@@ -54,6 +56,15 @@
 
 .on{
     display: block !important;
+}
+
+.link{
+    text-decoration: none;
+    color: #000;
+}
+
+.link:visited{
+    color: none;
 }
 
 /*  gnb end  */

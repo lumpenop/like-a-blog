@@ -1,9 +1,11 @@
 import {useState} from 'react';
 import './App.css';
-import {Gnb} from './components/gnb/Gnb';
+import { Route, Routes} from 'react-router-dom';
+import {Gnb} from './components/header/Gnb';
 import {Board} from './components/board/Board';
 import {Main} from './components/main/Main';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { Profile } from './components/profile/Profile';
+import { Write } from './components/write/Write';
 
 
 function App() {
@@ -12,13 +14,15 @@ function App() {
 
   return (
     <div className="App">
-      <Gnb />
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<Main />} />
-          <Route path="/board" element={<Board />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path='/' element={<Gnb />}>
+          <Route index element={<Main />} />
+          <Route path="/user" element={<Profile />} />
+          <Route path="/user/:board" element={<Board />} />
+          <Route path="/write" element={<Write />} />
+          
+        </Route>
+      </Routes>
     </div>
   );
 }
