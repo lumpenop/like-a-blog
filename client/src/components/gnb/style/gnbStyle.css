@@ -52,4 +52,8 @@
     height: 1.3rem;
 }
 
+.on{
+    display: block !important;
+}
+
 /*  gnb end  */

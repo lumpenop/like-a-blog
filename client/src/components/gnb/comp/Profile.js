@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
@@ -8,9 +8,14 @@ import { faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-
 const menu = ['블로그', '새 글 작성', '임시 글', '설정', '로그아웃']
+
 export const Profile = () =>{
+    const [isProfileMenu, setIsProfileMenu] = useState(false);
+
+    const clickProfile =()=>{
+        isProfileMenu?setIsProfileMenu(false):setIsProfileMenu(true);
+    }
     return(
         <>
             <div className="profile">
@@ -25,18 +30,26 @@ export const Profile = () =>{
                         className="profile-magnifyingGlass-icon" 
                         icon={faMagnifyingGlass} />
                 </div>
-                <div className="profile-img-box">
+                <div className="profile-img-box"
+                    onClick={clickProfile} 
+                >
                     <img className="profile-img" 
                         src="images/lumpen.jpeg" 
+                        width={'2.5rem'}
+                        height={'2.5rem'}
                     />
-                    <FontAwesomeIcon 
+                    <FontAwesomeIcon
                         className="profile-img-icon" 
                         icon={faCaretDown} 
                     />
                 </div>
-                <ProfileMenu>
+                <ProfileMenu
+                    isOn={isProfileMenu}
+                >
                     {menu.map((el, i)=>{
-                        <ProfileList key={i}>{el}</ProfileList>
+                        return <ProfileList 
+                                key={i}>{el}
+                            </ProfileList>
                     })}
                 </ProfileMenu>
             </div>
@@ -45,7 +58,12 @@ export const Profile = () =>{
 }
 
 const ProfileMenu = styled.ul`
-    display: none;
+    display: ${props=> props.isOn?'block':'none'};
+    position: absolute;
+    top: 2.8rem;
+    right: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: skyBlue;
 `
 const ProfileList = styled.li`
     
